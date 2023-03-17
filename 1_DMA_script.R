@@ -1,12 +1,18 @@
-
+# SCIRPT DESARROLLADO PARA EL CURSO
+# PROGRAMACION DE R EN HIDROLOGIA
+# EMPLEANDO LA NMETODOLOGIA DEL ANALISIS DE DOBLE MASA
+# DEL LIBRO DE MAXIMO VILLON
 
 # Install and load libraries ----------------------------------------------
 
 install.packages('zoo')
+install.packages('tidyverse')
+# install.packages('ggarrange')
+install.packages('ggpubr')
 
 library(zoo)
 library(tidyverse)
-library(ggarrange)
+# library(ggarrange)
 library(ggpubr)
 
 # Load data ---------------------------------------------------------------
