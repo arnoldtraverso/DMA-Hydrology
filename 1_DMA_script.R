@@ -49,6 +49,7 @@ VolAcum <- ggplot(data = Vol_data2, mapping = aes(x = Date, y = VolAcum)) +
        x = 'Años', y = 'Volumen acumulado mm3') + theme_bw()
 
 plot_vol <- ggarrange(Vol, VolAcum)
+
 plot_vol
 
 # Save plot
@@ -91,9 +92,10 @@ sp
 sd <- sp*(1/n1 + 1/n2)^0.5
 sd
 
-t.test(zoo_data)
+# t.test(zoo_data)
 
 tc <- (mean1 - mean2) / sd
+
 # t.test(Pr1, Pr2)
 # qt(0.05 / 2, df = 34)
 
@@ -104,11 +106,11 @@ tt = 1.960 # Table A.5
 
 # if (abs(tc) == tt) {
 #   print('NO SE CORRIGE')
-#   
+# 
 # } else {
-#   
+# 
 #   print('SE CORRIGE')
-#   
+# 
 # }
 
 if (abs(tc) == tt) {
@@ -116,7 +118,7 @@ if (abs(tc) == tt) {
   
 } else {
   
-  print('SE CORRIGE')
+  print('SE CORRIGE pureba T')
   
   if (sd2_2 > sd1_2) {
     
@@ -137,9 +139,12 @@ if (abs(tc) == tt) {
 # Correccion del periodo 1
 
 Corr <- ((Pr1 - mean1) / sd1 ) * sd2 + mean2
+
 New_Vol <- rbind(Corr, Pr2)
 
 class(New_Vol)
+
+write.zoo(x = New_Vol, file = 'New_vol_c.csv', sep = ';')
 
 # Plotting new corrected values -------------------------------------------
 # Graficando nuevos valores corregidos
